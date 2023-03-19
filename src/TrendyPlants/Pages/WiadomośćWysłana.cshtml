@@ -1,0 +1,20 @@
+﻿@page
+@model TrendyPlants.Pages.WiadomośćWysłanaModel
+@{
+    ViewData["Title"] = "Dziękujemy";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<div class="alert alert-success" role="alert">
+    Dziękujemy za wiadomość! Wkrótce odpowiemy na Wasze zapytanie!
+</div>
+
+<p>
+    Co chcielibyście zrobić teraz?
+    <ul>
+        <li><a asp-page="/Oferta/Index">Przeglądać nasze rośliny</a></li>
+        <li><a asp-page="/Kontakt">Wysłać kolejne zapytanie</a></li>
+    </ul>
+</p>

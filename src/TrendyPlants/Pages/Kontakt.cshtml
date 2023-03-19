@@ -1,0 +1,92 @@
+﻿@page
+@inject IOptions<TrendyPlantsOptions> ApplicationOptions
+@model TrendyPlants.Pages.KontaktModel
+@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+<br />
+<style>
+    #map {
+        height: 500px;
+        width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="col-lg mb-3">
+        <h2>Adres szkółki</h2>
+        <br />
+        <p>
+            @ApplicationOptions.Value.ContactAddressLine1<br />
+            @ApplicationOptions.Value.ContactAddressLine2<br />
+            @ApplicationOptions.Value.ContactAddressLine3<br />
+        </p>
+        <iframe width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="@ApplicationOptions.Value.GoogleMapsEmbedUrl" allowfullscreen></iframe>
+
+    </div>
+    <div class="col-lg mb-3">
+        <h2>Formularz kontaktowy</h2>
+        <br />
+        <p>
+            Wszelkie zapytania prosimy kierować do nas za pomocą poniższego formularza kontaktowego.
+        </p>
+
+        <form method="post">
+   
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>&nbsp;*
+                <input asp-for="Name" class="form-control" required>
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="MobilePhone" class="form-label"></label>&nbsp;*
+                <input asp-for="MobilePhone" class="form-control" required>
+                <span class="text-danger" asp-validation-for="MobilePhone"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EmailAddress" class="form-label"></label>
+                <input asp-for="EmailAddress" class="form-control">
+                <span class="text-danger" asp-validation-for="EmailAddress"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Message" class="form-label"></label>&nbsp;*
+                <textarea asp-for="Message" rows="5" class="form-control" required></textarea>
+                <span class="text-danger" asp-validation-for="Message"></span>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;Wyślij&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </form>
+    </div>
+</div>
+@*<div id="map"></div>*@
+
+
+<style>
+    h3 {
+        text-decoration: underline;
+    }
+</style>
+
+<div>
+    <p class="text-center">
+        <em>
+            Zapraszamy serdeczenie do naszej szkółki, gdzie w profesjonalny sposób doradzimy Państwu jak urządzić
+            Wasz ogród oraz jak pielęgnować rośliny, aby można się było nimi nacieszyć przez cały rok!
+        </em>
+    </p>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
