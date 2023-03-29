@@ -1,12 +1,32 @@
 ﻿
 <hr />
-<h6>Sprawdźcie nasze pozostałe produkty</h6>
-<ul>
-    <li><a asp-page="/Oferta/TujaSmaragd">Tuja Smaragd</a></li>
-    <li>
-        <a asp-page="/Oferta/Jodłakoreańska">Jodła koreańska</a>
-    </li>
-    <li>
-        <a asp-page="/Oferta/JalowiecSkyrocket">Jałowiec Skyrocket</a>
-    </li>
-</ul>
+<h6><b>Nasze pozostałe iglaki</b></h6>
+
+<div class="card-group">
+    <div class="card">
+        <a asp-page="/Oferta/TujaSmaragd">
+            <img src="~/images/oferta_images/dsc07319.jpg" class="card-img-top" alt="Tuja Smaragd">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Oferta/TujaSmaragd">Tuja Smaragd</a></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <a asp-page="/Oferta/Jodłakoreańska"><img src="~/images/oferta_images/dsc07424.jpg" class="card-img-top" alt="Jodła koreańska"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Oferta/Jodłakoreańska">Jodła koreańska</a></h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <a asp-page="/Oferta/JalowiecSkyrocket"><img src="~/images/oferta_images/dsc07418.jpg" class="card-img-top" alt="Jałowiec Skyrocket"></a>
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Oferta/JalowiecSkyrocket">Jałowiec Skyrocket</a></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div>

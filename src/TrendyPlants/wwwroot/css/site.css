@@ -25,16 +25,30 @@ body {
     color: aqua;
 }
 
-/*thuja {
-    margin: 10px;
-    background-color: yellow;
-    color-scheme: green;
-}*/
-
-/*.crimson-text {
-    color: crimson;
-}*/
-
 .display-4{
     padding: 50px;
+}
+.card-img-top {
+    width: 100%;
+    height: auto;/*100%; 15vw;*/
+    object-fit: cover;
+}
+/*for viewports less than "md" add an extra margin.*/
+@media (max-width: 767.98px) {
+    .oferta_top {
+        margin-top: 3rem;
+    }
+}
+
+h6{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font: bold;
+}
+/*Makes the text float to the right of the image*/
+/*.right{
+    float:right;
+}*/
+.tuja-opis{
+    float:right;
 }

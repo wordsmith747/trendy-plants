@@ -8,12 +8,7 @@
 <h1>@ViewData["Title"]</h1>
 <br />
 <br />
-<style>
-    #map {
-        height: 500px;
-        width: 100%;
-    }
-</style>
+
 <div class="row">
     <div class="col-lg mb-3">
         <h2>Adres szkółki</h2>
@@ -23,10 +18,16 @@
             @ApplicationOptions.Value.ContactAddressLine2<br />
             @ApplicationOptions.Value.ContactAddressLine3<br />
         </p>
-        <iframe width="600"
-                height="450"
-                frameborder="0" style="border:0"
-                src="@ApplicationOptions.Value.GoogleMapsEmbedUrl" allowfullscreen></iframe>
+        <br />
+        <br />
+        <div class="ratio ratio-16x9">
+            <iframe width="600"
+                    height="450"
+                    frameborder="0" style="border:0"
+                    src="@ApplicationOptions.Value.GoogleMapsEmbedUrl" allowfullscreen></iframe>
+        </div>
+        <br/>
+        <br/>
 
     </div>
     <div class="col-lg mb-3">
@@ -37,7 +38,7 @@
         </p>
 
         <form method="post">
-   
+
             <div class="mb-3">
                 <label asp-for="Name" class="form-label"></label>&nbsp;*
                 <input asp-for="Name" class="form-control" required>
@@ -67,7 +68,7 @@
         </form>
     </div>
 </div>
-@*<div id="map"></div>*@
+
 
 
 <style>
