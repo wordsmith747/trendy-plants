@@ -20,6 +20,7 @@
 
         gtag('config', '@ApplicationOptions.Value.GoogleTagKey');
     </script>
+    <script src="~/js/site.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -33,22 +34,18 @@
                 <div id="navbarNav" class=" navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Oferta/Index">Oferta</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" asp-page="/Oferta/Index">Oferta</a>
+                            <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" asp-page="/Oferta/Index">Nasze iglaki</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Oferta/Index">Nasze iglaki</a></li>
+         @*                       <li><a class="dropdown-item" asp-page="/Oferta/Index">Nasze iglaki</a></li>*@
                                 <li><a class="dropdown-item" asp-page="/oferta/tujasmaragd">Tuja Smaragd</a></li>
                                 <li><a class="dropdown-item" asp-page="/oferta/jodłakoreańska">Jodła koreańska</a></li>
                                 <li><a class="dropdown-item" asp-page="/oferta/jalowiecskyrocket">Jałowiec Skyrocket</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" asp-page="/kalkulatorszpalerów">Kalkulator szpalerów</a></li>
                             </ul>
-
-
-
-
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/KalkulatorSzpalerów">Kalkulator szpalerów</a>
                         </li>

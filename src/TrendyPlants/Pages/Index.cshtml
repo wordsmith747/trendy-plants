@@ -2,7 +2,7 @@
 @inject IOptions<TrendyPlantsOptions> ApplicationOptions
 @model IndexModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Strona domowa";
 }
 <meta name="google-site-verification" content="@ApplicationOptions.Value.GoogleSiteVerification" />
 <div class="text-center">
@@ -10,6 +10,4 @@
     <p><a asp-page="/Oferta/Index"><img class="img-fluid" src="~/images/dsc07304.jpg" /></a></p>
     <a class="display-4" style="text-decoration: none"  asp-page="/Oferta/Index">Oferta</a>
 </div>
-<body>
-    google-site-verification: googled8ac7ec183634f80.html
-</body>
+@*google-site-verification: googled8ac7ec183634f80.html*@
