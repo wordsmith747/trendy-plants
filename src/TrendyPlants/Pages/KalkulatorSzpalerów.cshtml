@@ -1,0 +1,174 @@
+﻿@page
+@model TrendyPlants.Pages.KalkulatorSzpalerówModel
+@{
+    ViewData["Title"] = "Kalkulator szpalerów";
+}
+
+
+<div id="kalkulator" class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col-auto">
+        <div class="card h-100" style="border:none">
+            <div class="card-body">
+                <h5 class="card-title">Kalkulator szpalerów</h5>
+                <p class="card-text">Przy pomocy naszego kalkulatora obliczysz ile iglaków trzeba do posadzenia przy ogrodzeniu.</p>
+                <form name="subscribForm" onsubmit="return false">
+
+                    Podaj długość ogrodzenia (w metrach)<br /> <br />
+                    <input type="number" name="fencelength" id="fencelength" min="1" max="10000" required placeholder="długość">
+                    <span class="text-danger field-validation-error"><span id="metreError" style="display:none">Minimalna długość to 1</span></span>
+                    <br />
+                </form>
+                <form name="subscribForm" onsubmit="return false">
+
+                    <br /> <br />
+                    <p> Wybierz iglaka z listy</p>
+                    <select id="conifers">
+                        <option value="iglak">Iglak</option>
+                        <option value="tujaSmaragd">Tuja Smaragd</option>
+                        <option value="jodlaKoreanska">Jodła koreańska</option>
+                        <option value="jalowiecSkyrocket">Jałowiec Skyrocket</option>
+                    </select>
+                    <span class="text-danger field-validation-error"><span id="coniferError" style="display:none">Wybierz iglaka z oferty</span></span>
+
+                    <br />
+                    <br />
+                    <br />
+                    <input id="button" type="submit" class="btn" value="Oblicz" onclick="CalculateConiferDensity();">
+                    <br />
+                    <br />
+                    <br />
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto">
+        <div class="card h-100" style="border:none" >
+            <div class="card-body">
+                <div style="visibility:hidden" id="resultArea">
+                    <h5 id="Recommendation" class="card-title">Nasza rekomendacja</h5>
+                    <p id="outcome">
+                        <output type="number" name="number" id="calculatorResult" style="font-weight:500;font-size:4em; color:forestgreen"></output>
+                    </p>
+                    <h5><span id="resultConiferName"></span> w szpalerze</h5>
+                    <div id="tuja1" style="display:none">
+                        <img src="~/images/tuja1.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div id="jodla1" style="display:none">
+                        <img src="~/images/jodlakoreanska.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div id="jalowiec1" style="display:none">
+                        <img src="~/images/jalowiecskyrocketnew.jpg" class="img-fluid rounded-start" alt="..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    function CalculateConiferDensity() {
+
+        let isLengthValid = false;
+        let isConiferValid = false;
+
+
+        let length = Number(document.getElementById("fencelength").value);
+        if (length <= 0) {
+            document.getElementById("metreError").style.display = "block";
+        }
+        else {
+            isLengthValid = true;
+            document.getElementById("metreError").style.display = "none";
+        }
+
+        let selectedConifer = document.getElementById("conifers").value;
+
+        if (selectedConifer === "iglak") {
+            document.getElementById("coniferError").style.display = "block";
+
+        }
+        else {
+            isConiferValid = true;
+            document.getElementById("coniferError").style.display = "none";
+        }
+
+        if ((isLengthValid === false) || (isConiferValid === false)) {
+            document.getElementById("resultArea").style.visibility = "hidden";
+            return;
+
+        }
+
+
+        /*Validation complete. Carry on calculating. */
+
+
+        let distanceThuiaSmaragd = .90;
+        let distanceJodlakoreanska = 3.5;
+        let distanceJalowiecSkyrocket = 0.5;
+
+        let selectedDistance = 0.0;
+
+
+
+        let selectedConiferNameDeclined = "";
+
+
+        switch (selectedConifer) {
+            case "tujaSmaragd":
+
+                selectedDistance = distanceThuiaSmaragd;
+                selectedConiferNameDeclined = "Tui Smaragd";
+                document.getElementById("tuja1").style.display = "block";
+                document.getElementById("jodla1").style.display = "none";
+                document.getElementById("jalowiec1").style.display = "none";
+                break;
+
+
+            case "jodlaKoreanska":
+                selectedDistance = distanceJodlakoreanska;
+                selectedConiferNameDeclined = "Jodeł koreańskich";
+                document.getElementById("jodla1").style.display = "block";
+                document.getElementById("tuja1").style.display = "none";
+                document.getElementById("jalowiec1").style.display = "none";
+                break;
+
+            case "jalowiecSkyrocket":
+                selectedDistance = distanceJalowiecSkyrocket;
+                selectedConiferNameDeclined = "Jałowców Skyrocket";
+                document.getElementById("jalowiec1").style.display = "block";
+                document.getElementById("tuja1").style.display = "none";
+                document.getElementById("jodla1").style.display = "none";
+                break;
+
+
+        }
+
+        let total = length / selectedDistance;
+
+        let ceilingTotal = Math.ceil(total);
+
+        let calculatorResult = document.getElementById("calculatorResult");
+        calculatorResult.innerHTML = ceilingTotal;
+        document.getElementById("resultConiferName").innerHTML = selectedConiferNameDeclined;
+        document.getElementById("resultArea").style.visibility = "visible";
+        scrollElement();
+    }
+    function scrollElement() {
+        var element = document.getElementById("Recommendation");
+        element.scrollIntoView();
+    }
+                                                        //var h1 =document.querySelector("h1");
+                                                        //var position = h1.getBoundingClientRect();
+                                                        //console.log(position);
+
+
+</script>
+<script src="~/js/NumberOfConifersPerLengthCalculator.js" asp-append-version="true"></script>
+<partial name="_Oferta_template" />
+
+

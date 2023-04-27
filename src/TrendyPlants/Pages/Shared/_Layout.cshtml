@@ -4,38 +4,61 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="@ApplicationOptions.Value.GoogleSiteVerification" />
     <title>@ViewData["Title"] - @ApplicationOptions.Value.WebsiteName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TrendyPlants.styles.css" asp-append-version="true" />
+ 
     @Html.Raw(JavaScriptSnippet.FullScript)
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=@ApplicationOptions.Value.GoogleTagKey"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', '@ApplicationOptions.Value.GoogleTagKey');
+    </script>
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">@ApplicationOptions.Value.WebsiteName</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div id="navbarNav" class=" navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                       @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li> *@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" asp-page="/Oferta/Index">Oferta</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-page="/Oferta/Index">Nasze iglaki</a></li>
+                                <li><a class="dropdown-item" asp-page="/oferta/tujasmaragd">Tuja Smaragd</a></li>
+                                <li><a class="dropdown-item" asp-page="/oferta/jodłakoreańska">Jodła koreańska</a></li>
+                                <li><a class="dropdown-item" asp-page="/oferta/jalowiecskyrocket">Jałowiec Skyrocket</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/kalkulatorszpalerów">Kalkulator szpalerów</a></li>
+                            </ul>
+
+
+
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Oferta/Index">Oferta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Onas">O nas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/KalkulatorSzpalerów">Kalkulator szpalerów</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Kontakt">Kontakt</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Onas">O nas</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

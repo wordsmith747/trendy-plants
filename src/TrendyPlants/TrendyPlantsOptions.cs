@@ -27,5 +27,11 @@
         public string ContactAddressLine2 { get; set; }
 
         public string ContactAddressLine3 { get; set; }
+
+        public string RecaptchaDataKey { get; set; }
+
+        public string GoogleTagKey { get; set; }
+
+        public string GoogleSiteVerification { get; set; }
     }
 }

@@ -39,6 +39,11 @@ namespace TrendyPlants.Pages
         [BindProperty]
         public string Message { get; set; }
 
+        [Required(ErrorMessage = "To pole jest wymagane.")]
+        [BindProperty(Name = "g-recaptcha-response")]
+        public string RecaptchaToken { get; set; }
+
+
         public void OnGet()
         {
         }

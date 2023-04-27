@@ -4,6 +4,9 @@
 @{
     ViewData["Title"] = "Kontakt";
 }
+<title>reCAPTCHA demo: Simple page</title>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 <h1>@ViewData["Title"]</h1>
 <br />
@@ -63,6 +66,7 @@
                 <span class="text-danger" asp-validation-for="Message"></span>
             </div>
             <div>
+                <div class="g-recaptcha" data-sitekey="@ApplicationOptions.Value.RecaptchaDataKey"></div>
                 <button class="btn btn-primary" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;Wyślij&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
         </form>
