@@ -10,18 +10,17 @@
             <div class="card-body">
                 <h5 class="card-title">Kalkulator szpalerów</h5>
                 <p class="card-text">Przy pomocy naszego kalkulatora obliczysz ile iglaków trzeba do posadzenia przy ogrodzeniu.</p>
-                <form name="subscribForm" onsubmit="return false">
+                <form name="subscribeForm" onsubmit="return false">
 
                     Podaj długość ogrodzenia (w metrach)<br /> <br />
-                    <input type="number" name="fencelength" id="fencelength" min="1" max="10000" required placeholder="długość">
+                    <input type="number" name="fencelength" class="form-control" id="fencelength" min="1" max="10000" required placeholder="długość">
                     <span class="text-danger field-validation-error"><span id="metreError" style="display:none">Minimalna długość to 1</span></span>
                     <br />
-                </form>
-                <form name="subscribForm" onsubmit="return false">
 
                     <br /> <br />
                     <p> Wybierz iglaka z listy</p>
-                    <select id="conifers">
+
+                    <select id="conifers" class="form-select">
                         <option value="iglak">Iglak</option>
                         <option value="tujaSmaragd">Tuja Smaragd</option>
                         <option value="jodlaKoreanska">Jodła koreańska</option>
@@ -32,7 +31,7 @@
                     <br />
                     <br />
                     <br />
-                    <input id="button" type="submit" class="btn" value="Oblicz" onclick="CalculateConiferDensity();">
+                    <input id="button" type="submit" class="btn btn-primary" value="Oblicz" onclick="CalculateConiferDensity();">
                     <br />
                     <br />
                     <br />
@@ -43,7 +42,7 @@
     </div>
 
     <div class="col-auto">
-        <div class="card h-100" style="border:none" >
+        <div class="card h-100" style="border:none">
             <div class="card-body">
                 <div style="visibility:hidden" id="resultArea">
                     <h5 id="Recommendation" class="card-title">Nasza rekomendacja</h5>
@@ -66,101 +65,9 @@
     </div>
 
 </div>
-@*<script>
-    function CalculateConiferDensity() {
-
-        let isLengthValid = false;
-        let isConiferValid = false;
-
-
-        let length = Number(document.getElementById("fencelength").value);
-        if (length <= 0) {
-            document.getElementById("metreError").style.display = "block";
-        }
-        else {
-            isLengthValid = true;
-            document.getElementById("metreError").style.display = "none";
-        }
-
-        let selectedConifer = document.getElementById("conifers").value;
-
-        if (selectedConifer === "iglak") {
-            document.getElementById("coniferError").style.display = "block";
-
-        }
-        else {
-            isConiferValid = true;
-            document.getElementById("coniferError").style.display = "none";
-        }
-
-        if ((isLengthValid === false) || (isConiferValid === false)) {
-            document.getElementById("resultArea").style.visibility = "hidden";
-            return;
-
-        }
-
-
-        /*Validation complete. Carry on calculating. */
-
-
-        let distanceThuiaSmaragd = .90;
-        let distanceJodlakoreanska = 3.5;
-        let distanceJalowiecSkyrocket = 0.5;
-
-        let selectedDistance = 0.0;
-
-
-
-        let selectedConiferNameDeclined = "";
-
-
-        switch (selectedConifer) {
-            case "tujaSmaragd":
-
-                selectedDistance = distanceThuiaSmaragd;
-                selectedConiferNameDeclined = "Tui Smaragd";
-                document.getElementById("tuja1").style.display = "block";
-                document.getElementById("jodla1").style.display = "none";
-                document.getElementById("jalowiec1").style.display = "none";
-                break;
-
-
-            case "jodlaKoreanska":
-                selectedDistance = distanceJodlakoreanska;
-                selectedConiferNameDeclined = "Jodeł koreańskich";
-                document.getElementById("jodla1").style.display = "block";
-                document.getElementById("tuja1").style.display = "none";
-                document.getElementById("jalowiec1").style.display = "none";
-                break;
-
-            case "jalowiecSkyrocket":
-                selectedDistance = distanceJalowiecSkyrocket;
-                selectedConiferNameDeclined = "Jałowców Skyrocket";
-                document.getElementById("jalowiec1").style.display = "block";
-                document.getElementById("tuja1").style.display = "none";
-                document.getElementById("jodla1").style.display = "none";
-                break;
-
-
-        }
-
-        let total = length / selectedDistance;
-
-        let ceilingTotal = Math.ceil(total);
-
-        let calculatorResult = document.getElementById("calculatorResult");
-        calculatorResult.innerHTML = ceilingTotal;
-        document.getElementById("resultConiferName").innerHTML = selectedConiferNameDeclined;
-        document.getElementById("resultArea").style.visibility = "visible";
-        scrollElement();
-    }
-    function scrollElement() {
-        var element = document.getElementById("Recommendation");
-        element.scrollIntoView();
-    }
-
-
-</script>*@
+<script>
+    initialiseCalculator();
+</script>
 
 <partial name="_Oferta_template" />
 
