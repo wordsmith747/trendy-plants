@@ -123,3 +123,7 @@ img {
 .photo:hover img {
     transform: scale(1.7);
 }
+.tab {
+    display: inline-block;
+    margin-left: 30px;
+}
